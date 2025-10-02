@@ -28,7 +28,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --sourcemap --clean --dts",
-    "lint": "eslint src test typings",
+    "lint": "eslint src test",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --config ./jest.config.js",
     "test:watch": "npm run test -- --watchAll",
