@@ -7,6 +7,7 @@ describe(`queryParser middleware`, () => {
 
   beforeEach(() => {
     app = express();
+    app.set(`query parser`, `extended`);
   });
 
   describe(`basic middleware functionality`, () => {
