@@ -1,13 +1,15 @@
-[![](https://img.shields.io/npm/v/express-query-parser.svg)](https://www.npmjs.com/package/express-query-parser)
-[![](https://img.shields.io/npm/dt/express-query-parser.svg)](https://www.npmjs.com/package/express-query-parser)
-![](https://img.shields.io/github/license/jackypan1989/express-query-parser.svg)
+# express-query-parser2
 
-# Express-query-parser
+[![npm version](https://badge.fury.io/js/express-query-parser2.svg)](https://www.npmjs.com/package/express-query-parser2)
+
 A parser helps you parse request for your express server. You may usually encounter some ```req.query``` issues like parsing ```'null'```, ```'true'``` and any numbered string. This parser covert them to the right type.
 
-## scenarios
+- Forked from [express-query-parser](https://www.npmjs.com/package/express-query-parser) and added support for express v5
 
-query with object
+## Scenarios
+
+### Query with Object
+
 ```js
 // GET http://localhost/?a=null&b=true&c[d]=false&c[e]=3.14
 
@@ -18,7 +20,8 @@ req.query = {a: 'null', b: 'true', c: {d: 'false', e: '3.14'}}
 req.query = {a: null, b: true, c: {d: false, e: 3.14}}
 ```
 
-query with array
+### Query with Array
+
 ```js
 // GET http://localhost/?a[]=null&a[]=false
 
@@ -29,35 +32,31 @@ req.query = {a: ['null', 'false']}
 req.query = {a: [null, false]}
 ```
 
-## changelog
-2022-05-31 (1.3.3): add empty string convert  
-2021-11-30 (1.3.2): add undefined convert  
-2021-10-12 (1.3.0): bump version, add number convert  
-2021-04-01 (1.2.0): bump version, only use esbuild and add type declarion  
-2020-10-26 (1.1.0): rewrite to typescript and rollup  
-2018-05-31 (1.0.2): support array  
-2018-05-29 (1.0.1): reduce size (177KB -> 17KB)    
-2018-05-17 (1.0.0): publish init version  
+## Features
 
-## feature
-- [x] parse your query for null / boolean / undefined
-- [x] support nested query
-- [x] support array
-- [x] support numbered string convert 
+- Parse your query for null / boolean / undefined
+- Support nested query
+- Support array
+- Support numbered string convert
 
-## install
+### Installing
+
+You can install via Yarn or npm
+
 ```bash
-# use yarn
-yarn add express-query-parser
-
-# use npm
-npm i express-query-parser
+yarn add express-query-parser2
 ```
 
-## usage
+```bash
+npm install express-query-parser2
+```
+
+## Usage
+
 ```js
-const { queryParser } = require('express-query-parser')
-const express = require('express')
+import { queryParser } from 'express-query-parser2'
+import express from 'express'
+
 const app = express()
 
 app.use(
@@ -70,7 +69,7 @@ app.use(
 )
 ```
 
-## options
+## Config Options
 
 | field | desc | type | default |
 |---|---|---|---|
@@ -81,4 +80,38 @@ app.use(
 
 ---
 
-**Welcome any issues and PRs submit :D**
+## Local Development and Contributing
+
+I am more than happy to accept PRs for bugs, improvements or new features.
+Developing your own changes locally is easy, you just need to clone the repo
+
+```bash
+git clone git@github.com/reediculous456/express-query-parser.git
+```
+
+Then navigate to the project folder
+
+```bash
+
+cd express-query-parser
+```
+
+and install the dependencies with either `npm` or `yarn`
+
+```bash
+npm i
+```
+
+```bash
+yarn
+```
+
+Tests can be ran with the `test` script
+
+```bash
+npm run test
+```
+
+```bash
+yarn test
+```
