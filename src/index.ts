@@ -36,13 +36,19 @@ export const parse = (target: ParsedQuery, options: Options) : ParsedQuery => {
         )
         return obj
       }
-    default: 
+    default:
       return target
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const queryParser = (options: Options) => (req: Request, res: Response, next: NextFunction) => {
+const defaultOptions: Options = {
+  parseNull: true,
+  parseUndefined: true,
+  parseBoolean: true,
+  parseNumber: true
+}
+
+export const queryParser = (options: Options = defaultOptions) => (req: Request, res: Response, next: NextFunction) => {
   req.query = parse(req.query, options)
   next()
 }
