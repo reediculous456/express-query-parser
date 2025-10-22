@@ -19,15 +19,6 @@
   },
   "type": "commonjs",
   "author": "Wesley Reed",
-  "keywords": [
-    "express",
-    "express5",
-    "query",
-    "parser",
-    "query-parser",
-    "middleware"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --sourcemap --clean --dts",
     "lint": "eslint src test",
@@ -44,6 +35,19 @@
     "check-updates:fix": "ncu --configFileName .check-updates.json --upgrade --errorLevel 1",
     "check-updates:all": "ncu --configFileName .check-updates.json --target latest --errorLevel 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/reediculous456/express-query-parser.git"
+  },
+  "keywords": [
+    "express",
+    "express5",
+    "query",
+    "parser",
+    "query-parser",
+    "middleware"
+  ],
+  "license": "MIT",
   "files": [
     "dist/**/*",
     "src/**/*"
